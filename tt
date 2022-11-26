@@ -1,0 +1,209 @@
+<NavigationContainer>
+                <Tab.Navigator>
+                    <Tab.Screen name="Карта" component={MapScreen}
+                                options={{
+                                    headerShown: false,
+                                    title: 'Карта',
+                                    tabBarIcon: ({size, focused, color}) => {
+                                        return (
+                                            <Image
+                                                style={{width: size, height: size}}
+                                                source={{
+                                                    uri:
+                                                        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+                                                }}
+                                            />
+                                        );
+                                    },
+                                }}/>
+                    <Tab.Screen name="Добавить фото" component={AddPhoto}
+                                options={{
+                                    headerShown: false,
+                                    title: 'Добавить фото',
+                                    tabBarIcon: ({size, focused, color}) => {
+                                        return (
+                                            <Image
+                                                style={{width: size, height: size}}
+                                                source={{
+                                                    uri:
+                                                        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+                                                }}
+                                            />
+                                        );
+                                    },
+                                }}/>
+                    <Tab.Screen name="Система поощрений" component={TakeBonus}
+                                options={{
+                                    headerShown: false,
+                                    title: 'Система поощрений',
+                                    tabBarIcon: ({size, focused, color}) => {
+                                        return (
+                                            <Image
+                                                style={{width: size, height: size}}
+                                                source={{
+                                                    uri:
+                                                        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+                                                }}
+                                            />
+                                        );
+                                    },
+                                }}/>
+                    {/*<Tab.Screen name="Профиль" component={ProfileScreen} />*/}
+                    <Tab.Screen
+                        name="Профиль"
+                        component={ProfileScreen}
+                        options={{
+                            headerShown: false,
+                            title: 'Профиль',
+                            tabBarIcon: ({size, focused, color}) => {
+                                return (
+                                    <Image
+                                        style={{width: size, height: size}}
+                                        source={{
+                                            uri:
+                                                'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+                                        }}
+                                    />
+                                );
+                            },
+                        }}
+                    />
+                </Tab.Navigator>
+            </NavigationContainer>
+
+
+
+
+
+
+
+
+
+
+
+
+            App
+
+
+
+
+
+
+
+            import React, {PureComponent, useEffect, useRef} from 'react';
+            import type {Node} from 'react';
+            import SignInScreen from "./src/screens/SignInScreen";
+
+            import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+            import {
+                SafeAreaView,
+                ScrollView,
+                StatusBar,
+                StyleSheet,
+                Text,
+                useColorScheme,
+                View,
+                Dimensions, TouchableOpacity, AppRegistry, Image, Button,
+            } from 'react-native';
+
+
+            import {NavigationContainer} from '@react-navigation/native';
+            import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+            import {takePicture} from "react-native-camera-hooks/src/takePicture";
+
+            let Coordinates = [];
+            Coordinates[0] = 37.78825;
+            Coordinates[1] = -122.4324;
+            Coordinates[2] = 0.0922;
+            Coordinates[3] = 0.0421;
+
+
+            function MapScreen() {
+                return (
+
+                    <View style={styles.container}>
+                        <MapView
+                            style={styles.map}
+
+                            initialRegion={{
+                                latitude: Coordinates[0],
+                                longitude: Coordinates[1],
+                                latitudeDelta: Coordinates[2],
+                                longitudeDelta: Coordinates[3]
+                            }}
+                        />
+                    </View>
+
+                );
+            }
+
+            function AddPhoto() {
+                return (
+                    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                        {/*AppRegistry.registerComponent('App', () ExampleApp);*/}
+                        <Text>Сделать Фото</Text>
+                    </View>
+                );
+            }
+
+            function TakeBonus() {
+                return (
+                    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                        <Text>Bonus</Text>
+                    </View>
+                );
+            }
+
+            function ProfileScreen() {
+                return (
+                    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                        <Text>Profile</Text>
+                    </View>
+                );
+            }
+
+            const Tab = createBottomTabNavigator();
+
+
+            export default function App() {
+
+                return (
+                    <SignInScreen/>
+
+
+                );
+            }
+
+            const styles = StyleSheet.create({
+                root:{
+                    flex: 1,
+                    backgroundColor: '#F9FBFC',
+                },
+                container: {
+                    flex: 1,
+                    backgroundColor: '#fff',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                },
+                map: {
+                    width: Dimensions.get("window").width,
+                    height: Dimensions.get("window").height,
+                },
+                searchContainer: {
+                    position: "absolute",
+                    width: "90%",
+                    backgroundColor: "white",
+                    shadowColor: "black",
+                    shadowOffset: {width: 2, height: 2,},
+                    shadowOpacity: 0.5,
+                    shadowRadius: 4,
+                    elevation: 4,
+                    padding: 8,
+                    borderRadius: 8,
+                    top: '1%',
+                },
+                input: {
+                    borderColor: "#888",
+                    borderWidth: 1,
+                },
+            });

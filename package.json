@@ -1,0 +1,63 @@
+{
+  "target": "esnext",
+  "module": "commonjs",
+  "name": "projectname",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint .",
+    "windows": "react-native run-windows"
+  },
+  "dependencies": {
+    "3": "^2.1.0",
+    "@googlemaps/react-wrapper": "^1.1.35",
+    "@react-native-async-storage/async-storage": "^1.17.11",
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-navigation/bottom-tabs": "^6.4.1",
+    "@react-navigation/core": "^6.4.1",
+    "@react-navigation/native": "^6.0.14",
+    "@react-navigation/native-stack": "^6.9.2",
+    "2gis-maps": "^3.7.2",
+    "axios": "^1.2.0",
+    "expo-constants": "^14.0.2",
+    "expo-status-bar": "^1.4.2",
+    "jwt-decode": "^3.1.2",
+    "module": "^1.2.5",
+    "react": "18.1.0",
+    "react-map-gl": "^7.0.19",
+    "react-native": "0.70.6",
+    "react-native-async-storage": "^0.0.1",
+    "react-native-camera": "^4.2.1",
+    "react-native-camera-hooks": "^0.5.3",
+    "react-native-geocoder-reborn": "^0.9.0",
+    "react-native-geocoding": "^0.5.0",
+    "react-native-gesture-handler": "^2.8.0",
+    "react-native-google-places-autocomplete": "^2.5.1",
+    "react-native-linear-gradient": "^2.6.2",
+    "react-native-maps": "^1.3.2",
+    "react-native-reanimated": "^2.13.0",
+    "react-native-safe-area-context": "^4.4.1",
+    "react-native-screens": "~3.18.0",
+    "react-native-svg": "^13.6.0",
+    "react-native-vector-icons": "^9.2.0",
+    "react-native-windows": "0.70.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.32.0",
+    "jest": "^26.6.3",
+    "metro-config": "^0.72.3",
+    "metro-react-native-babel-preset": "0.72.3",
+    "react-test-renderer": "18.1.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

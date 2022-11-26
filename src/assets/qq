@@ -1,0 +1,76 @@
+import React, {PureComponent, useState} from 'react';
+
+import MapView, {Marker} from 'react-native-maps';
+import {Alert, Dimensions, Image, Modal, Pressable, StyleSheet, Text, TextInput, View,} from 'react-native';
+import Geocoder from 'react-native-geocoding';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import map from "react-map-gl/src/components/map";
+import Login from "./src/screens/login";
+import Routers from "./src/routers/routers";
+
+
+
+export default function App() {
+
+    return (
+
+        <NavigationContainer>
+            <Routers />
+        </NavigationContainer>
+
+
+    );
+}
+
+const styles = StyleSheet.create({
+    bottom: {
+        height: '10%',
+    },
+    icon: {},
+    root: {
+        flex: 1,
+        backgroundColor: '#F9FBFC',
+    },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    map: {
+        width: Dimensions.get("window").width,
+        height: Dimensions.get("window").height - 75,
+    },
+    modal: {
+        marginTop: '50%',
+        marginVertical: '50%'
+    },
+    searchContainer: {
+        position: "absolute",
+        width: "90%",
+        backgroundColor: "white",
+        shadowColor: "black",
+        shadowOffset: {width: 2, height: 2,},
+        shadowOpacity: 0.5,
+        shadowRadius: 4,
+        elevation: 4,
+        padding: 8,
+        borderRadius: 8,
+        top: '1%',
+    },
+    input: {
+        borderColor: "#888",
+        borderWidth: 1,
+    },
+    mapText: {
+        marginTop: 10,
+        backgroundColor: "red",
+    },
+    modalText: {
+        backgroundColor: 'red',
+        marginTop: 10,
+    }
+
+
+});

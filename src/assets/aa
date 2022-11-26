@@ -1,0 +1,29 @@
+const API_KEY = "AIzaSyBlrqymU2u_a3-S-rZbMVDJQFMjU9fNc2Q";
+    let Coordinates = [];
+    Coordinates[0] = 62.03842;
+    Coordinates[1] = 129.731979;
+    Coordinates[2] = 0.0922;
+    Coordinates[3] = 0.0421;
+
+    const token = AsyncStorage.getItem('AccessToken');
+
+        const getOrdersFromApi = async () => {
+            try {
+                const response = await fetch(
+                    'http://hakatonspring.ml/api/orders', {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': 'Bearer ' + token,
+                            Accept: 'application/json',
+                            'Content-type': 'application/json'
+                        },
+                    }
+                );
+                const json = await response.json();
+                return json.orders;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        let p = 0;
+
